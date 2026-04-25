@@ -129,4 +129,21 @@ POST /predict
 
 ---
 
-If you want, I can also help you make this README stronger for recruiters or turn the project into a more production-ready system.
+## Here is the updated Dockerfile:
+
+FROM python:3.10-slim
+
+WORKDIR /app
+
+COPY . .
+
+RUN pip install --no-cache-dir fastapi uvicorn scikit-learn joblib
+
+EXPOSE 8000
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+```
+
+Note :
+
+You can use a different port if port 8000 is already in use by modifying the port value in the Dockerfile or when running the container.
